@@ -1,0 +1,125 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
+			  xmlns:tools="http://schemas.android.com/tools"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:orientation="vertical"
+			  android:gravity="center"
+			  tools:context=".MainActivity">
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		<TextView
+				android:id="@+id/text_view"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="55dp"
+				android:text="Step X"
+				android:textSize="30sp" />
+
+		<Button
+				android:id="@+id/reset_but"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+				android:layout_centerVertical="true"
+				android:layout_marginEnd="55dp"
+				android:text="reset" android:onClick="reset"/>
+
+	</RelativeLayout>
+
+	<TableRow
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center">
+
+		<Button
+				android:id="@+id/but1"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+		<Button
+				android:id="@+id/but2"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+		<Button
+				android:id="@+id/but3"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+	</TableRow>
+
+	<TableRow
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center">
+
+		<Button
+				android:id="@+id/but4"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+		<Button
+				android:id="@+id/but5"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+		<Button
+				android:id="@+id/but6"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+	</TableRow>
+
+	<TableRow
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center">
+
+		<Button
+				android:id="@+id/but7"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+		<Button
+				android:id="@+id/but8"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+		<Button
+				android:id="@+id/but9"
+				android:text=""
+				android:layout_margin="5dp"
+				android:layout_width="40pt"
+				android:layout_height="40pt"
+				android:onClick="butClick"/>
+
+	</TableRow>
+
+</LinearLayout>
