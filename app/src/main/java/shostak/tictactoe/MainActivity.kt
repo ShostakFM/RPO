@@ -117,13 +117,21 @@ class MainActivity : AppCompatActivity() {
             winner=2
         }
 
+        var nums = ArrayList<Int>()
+        for (i in 1..9)
+            nums.add(i)
+
+        var allSteps = player1 + player2
+
+        if (allSteps.containsAll(nums))
+            winner = 0
+
         if( winner != -1){
-
-            if (winner==1){
-                Toast.makeText(this," Player 1  win the game", Toast.LENGTH_LONG).show()
-            }else{
-                Toast.makeText(this," Player 2  win the game", Toast.LENGTH_LONG).show()
-
+            blockButtons()
+            when (winner) {
+                1 -> Toast.makeText(this," Player 1  win the game", Toast.LENGTH_LONG).show()
+                2 -> Toast.makeText(this," Player 2  win the game", Toast.LENGTH_LONG).show()
+                0 -> Toast.makeText(this," Friendship win the game", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -133,5 +141,10 @@ class MainActivity : AppCompatActivity() {
         player2.clear()
         player1Turn = true
         clearButtons()
+    }
+
+    fun blockButtons() {
+        for (i in buttons)
+            i.isEnabled = false
     }
 }
