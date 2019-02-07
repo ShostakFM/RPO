@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,9 +59,11 @@ class MainActivity : AppCompatActivity() {
             R.id.but9 -> cellId = 9
         }
         play(cellId, butSelected)
-        val textView: TextView = findViewById(R.id.text_view)
-        if (player1Turn) textView.text = "Step X"
-        else textView.text = "Step O"
+        if (player1Turn) {
+            text_view.text = "Step X"
+        }
+        else { text_view.text = "Step O"}
+
     }
 
     private fun play(cellId: Int, butSelected: Button) {
@@ -136,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun reset (view: View) {
+    fun reset () {
         player1.clear()
         player2.clear()
         player1Turn = true
