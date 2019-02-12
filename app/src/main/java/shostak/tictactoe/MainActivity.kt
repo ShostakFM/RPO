@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
 
         var allSteps = player1 + player2
 
-        if (allSteps.containsAll(nums))
+        if (allSteps.containsAll(nums) && winner == -1)
             winner = 0
 
         if( winner != -1){
@@ -139,10 +139,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun reset () {
+    fun reset (view: View) {
         player1.clear()
         player2.clear()
         player1Turn = true
+        text_view.text = "Step X"
         clearButtons()
     }
 
