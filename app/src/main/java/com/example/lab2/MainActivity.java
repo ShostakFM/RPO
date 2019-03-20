@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private BreedAdapter breedAdapter;
     private ArrayList<Breed> breedList;
     private RequestQueue requestQueue;
+    private BreedDAO breedDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,21 @@ public class MainActivity extends AppCompatActivity {
 
         breedList = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
-
+        breedDAO = BreedDB.getDatabase(getApplicationContext()).breedDAO();
         parseJSON();
+        Button button = findViewById(R.id.but1);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        breedDAO.insertAll(breedList);
+                    }
+                }).start();
+            }
+        });
     }
 
     private void parseJSON() {
@@ -63,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                               List<Breed> breeds = breedDAO.getAllBreeds();
+                               breedAdapter = new BreedAdapter(MainActivity.this, breeds);
+                               recyclerView.setAdapter(breedAdapter);
+                            }
+                        }).start();
                     }
         });
         requestQueue.add(request);

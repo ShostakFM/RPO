@@ -9,13 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BreedAdapter extends RecyclerView.Adapter <BreedAdapter.BreedViewHolder> {
 
     private Context mContext;
-    private ArrayList <Breed> mBreedArray;
+    private List<Breed> mBreedArray;
 
-    public BreedAdapter(Context mContext, ArrayList<Breed> mBreedArray) {
+    public BreedAdapter(Context mContext, List<Breed> mBreedArray) {
         this.mContext = mContext;
         this.mBreedArray = mBreedArray;
     }

@@ -1,11 +1,21 @@
 package com.example.lab2;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity(tableName = "breeds")
 public class Breed {
     private static int count = 1;
 
+    @PrimaryKey
+    @ColumnInfo(name = "breed_id")
     private int id;
+    @ColumnInfo(name = "breed_name")
     private String mName;
+    @ColumnInfo(name = "temperament")
     private String mTemperament;
+    @ColumnInfo(name = "description")
     private String mDescription;
 
     public Breed(String mName, String mTemperament, String mDescription) {
@@ -13,6 +23,9 @@ public class Breed {
         this.mName = mName;
         this.mTemperament = mTemperament;
         this.mDescription = mDescription;
+    }
+
+    public Breed() {
     }
 
     public String getName() {
@@ -43,15 +56,15 @@ public class Breed {
         this.id = id;
     }
 
-    public void setmName(String mName) {
+    public void setName(String mName) {
         this.mName = mName;
     }
 
-    public void setmTemperament(String mTemperament) {
+    public void setTemperament(String mTemperament) {
         this.mTemperament = mTemperament;
     }
 
-    public void setmDescription(String mDescription) {
+    public void setDescription(String mDescription) {
         this.mDescription = mDescription;
     }
 }

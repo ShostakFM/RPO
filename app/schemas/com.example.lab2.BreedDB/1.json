@@ -2,39 +2,41 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "55b50f41b3fc776421e4db89e10506ab",
+    "identityHash": "f7eeb446a5158407a2ff35200ec22b74",
     "entities": [
       {
-        "tableName": "Breed",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `mName` TEXT, `mTemperament` TEXT, `mDescription` TEXT)",
+        "tableName": "breeds",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`breed_id` INTEGER NOT NULL, `breed_name` TEXT, `temperament` TEXT, `description` TEXT, PRIMARY KEY(`breed_id`))",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "id",
+            "columnName": "breed_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "mName",
-            "columnName": "mName",
+            "columnName": "breed_name",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "mTemperament",
-            "columnName": "mTemperament",
+            "columnName": "temperament",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "mDescription",
-            "columnName": "mDescription",
+            "columnName": "description",
             "affinity": "TEXT",
             "notNull": false
           }
         ],
         "primaryKey": {
-          "columnNames": [],
+          "columnNames": [
+            "breed_id"
+          ],
           "autoGenerate": false
         },
         "indices": [],
@@ -43,7 +45,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"55b50f41b3fc776421e4db89e10506ab\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f7eeb446a5158407a2ff35200ec22b74\")"
     ]
   }
 }
